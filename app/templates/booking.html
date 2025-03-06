@@ -1,0 +1,84 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Đặt Phòng{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center; margin-top: 50px;">ĐẶT PHÒNG</h1>
+
+<script>
+    {% if current_user.is_authenticated %}
+    function showConfirmation() {
+        return confirm("Xác nhận đặt phòng?");
+    }
+    {% else %}
+    function showConfirmation() {
+        alert("Vui lòng đăng nhập để tiếp tục");
+        window.location.href = "/login";
+        return false;
+    }
+    {% endif %}
+</script>
+
+<div style="margin: 100px auto">
+    <div class="container" style="background-color: #fff; border-radius: 10px; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); position: relative; overflow: hidden; width: 768px; max-width: 100%; min-height: 550px;">
+        <div class="form-container" style="position: relative; width: 50%; float: left; padding: 20px;">
+            <form id="myForm" action="/booking" method="POST" style="background-color: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 0 50px; height: 100%; text-align: center;">
+                <label style="width:100%; text-align:left; display: block; font-weight: bold; margin-left: 7px;">Họ
+                    tên</label>
+                <input type="text" placeholder="Họ và Tên" name="nameuser"
+                       style="background-color: #eee; border: none; padding: 12px 15px; margin: 8px 0; width: 100%;">
+                <label style="width:100%; text-align:left; display: block; font-weight: bold; margin-left: 7px;">Ngày
+                    nhận</label>
+                <input type="date" placeholder="Ngày nhận" name="check-in"
+                       style="background-color: #eee; border: none; padding: 12px 15px; margin: 8px 0; width: 100%;">
+                <label style="width:100%; text-align:left; display: block; font-weight: bold; margin-left: 7px;">Ngày
+                    trả</label>
+                <input type="date" placeholder="Ngày trả" name="check-out"
+                       style="background-color: #eee; border: none; padding: 12px 15px; margin: 8px 0; width: 100%;">
+                <label style="width:100%; text-align:left; display: block; font-weight: bold; margin-left: 7px;">Số người ở
+                    </label>
+                <div style="display: flex">
+                    <div style="padding: 12px 15px; width: 100%;">
+                        <p style="margin: 0">1</p>
+                    <input type="radio" name="count" value="1">
+                    </div>
+
+                    <div style="padding: 12px 15px; width: 100%;">
+                        <p style="margin: 0">2</p>
+                    <input type="radio" name="count" value="2">
+                    </div>
+
+                    <div style="padding: 12px 15px; width: 100%;">
+                        <p style="margin: 0">3</p>
+                    <input type="radio" name="count" value="3">
+                    </div>
+                </div>
+
+                <label style="width:100%; text-align:left; display: block; font-weight: bold; margin-left: 7px;">Loại
+                    phòng</label>
+
+
+                <select name="type-room"
+                        style="background-color: #eee; border: none; padding: 12px 15px; margin: 8px 0; width: 100%;">
+                    {% for r in typeroom %}
+                    <option>{{ r.name }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit" onclick="return showConfirmation()" style="border-radius: 20px; border: 1px solid #FF4B2B; background-color: #FF4B2B; color: #FFFFFF; font-size: 12px; font-weight: bold; padding: 12px 45px; letter-spacing: 1px; text-transform: uppercase; transition: transform 80ms ease-in;">
+                    Xác nhận
+                </button>
+            </form>
+        </div>
+
+        <div class="overlay-container" style="position: absolute; top: 0; right: 0; width: 50%; height: 100%; overflow: hidden;">
+            <div class="overlay" style="background: linear-gradient(to right, #FF4B2B, #FF416C); background-color: #FF416C; color: #FFFFFF; position: relative; height: 100%; width: 100%;">
+                <div class="overlay-panel" style="position: absolute; top: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0 40px; text-align: center;">
+                    <h2 style="color: #FFFFFF; font-weight: bold; margin: 0;">CHÀO, BẠN!</h2>
+                    <p style="color: #FFFFFF; font-size: 14px; margin: 20px 0 30px;">Cung cấp thông tin của bạn để tiếp tục</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}
