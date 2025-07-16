@@ -1,88 +1,88 @@
 # Hotel Management
 
-## Giới thiệu
+## Introduction
 
-**Hotel Management** là một hệ thống quản lý khách sạn, cho phép khách hàng đặt phòng trực tuyến và giúp nhân viên/quản lý dễ dàng theo dõi, xử lý các nghiệp vụ liên quan đến phòng, khách hàng, thanh toán, và báo cáo doanh thu. Hệ thống hướng đến việc tự động hóa và tối ưu hóa quy trình vận hành khách sạn.
+**Hotel Management** is a hotel management system that allows customers to book rooms online and helps staff/managers easily track and handle operations related to rooms, customers, payments, and revenue reports. The system aims to automate and optimize hotel operations.
 
-## Tính năng chính
+## Main Features
 
-- **Đặt phòng trực tuyến:**  
-  Khách hàng có thể chọn loại phòng, nhập thông tin cá nhân, số lượng người ở, ngày nhận và trả phòng, và gửi yêu cầu đặt phòng qua giao diện web.
+- **Online Room Booking:**  
+  Customers can select room types, enter personal information, the number of guests, check-in and check-out dates, and submit booking requests via the web interface.
 
-- **Quản lý phòng:**  
-  Xem danh sách phòng, thông tin chi tiết từng phòng, loại phòng, giá cả, hình ảnh, mô tả, diện tích, loại giường, tầm nhìn,...
+- **Room Management:**  
+  View the list of rooms, detailed information for each room, room types, prices, images, descriptions, area, bed type, view, etc.
 
-- **Lập phiếu thuê phòng:**  
-  Nhân viên có thể lập phiếu thuê phòng cho khách, tìm kiếm thông tin khách hàng và thông tin đặt phòng.
+- **Create Rental Slips:**  
+  Staff can create rental slips for guests, search for customer information and booking details.
 
-- **Thanh toán & xuất hóa đơn:**  
-  Hỗ trợ thanh toán, tính tổng tiền dựa trên loại phòng và số ngày lưu trú, xuất phiếu hóa đơn.
+- **Payment & Invoice Generation:**  
+  Supports payment, calculates the total amount based on room type and length of stay, and generates invoices.
 
-- **Báo cáo doanh thu:**  
-  Quản trị viên có thể xem báo cáo doanh thu, thống kê hoạt động kinh doanh.
+- **Revenue Reports:**  
+  Administrators can view revenue reports and business statistics.
 
-- **Quản lý người dùng và phân quyền:**  
-  Hỗ trợ nhiều vai trò như khách hàng, nhân viên, quản trị viên; mỗi vai trò có quyền hạn riêng biệt.
+- **User Management & Authorization:**  
+  Supports multiple roles such as customer, staff, administrator; each role has its own permissions.
 
-## Công nghệ sử dụng
+## Technologies Used
 
 - **Backend:** Python (Flask), SQLAlchemy ORM, SQLite/MySQL
 - **Frontend:** HTML, CSS, JavaScript (Jinja2 Template)
 - **Authentication:** Flask-Login
-- **Quản trị:** Flask-Admin
+- **Administration:** Flask-Admin
 
-## Khởi động dự án
+## Getting Started
 
-### 1. Cài đặt môi trường
+### 1. Set Up Environment
 
 ```bash
 git clone https://github.com/Xhoangduy/Hotel_Management.git
 cd Hotel_Management
 python -m venv venv
-source venv/bin/activate  # hoặc venv\Scripts\activate trên Windows
+source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
 ```
 
-### 2. Khởi tạo CSDL
+### 2. Initialize Database
 
-- Cấu hình thông tin CSDL trong `app/__init__.py` hoặc `.env`
-- Tạo database:
+- Configure the database information in `app/__init__.py` or `.env`
+- Create the database:
 ```bash
 python app/models.py
 ```
 
-### 3. Chạy ứng dụng
+### 3. Run the Application
 
 ```bash
 python app/index.py
 ```
-Truy cập tại: [http://localhost:5000](http://localhost:5000)
+Access at: [http://localhost:5000](http://localhost:5000)
 
-## Cấu trúc thư mục
+## Project Structure
 
 ```
 Hotel_Management/
 ├── app/
 │   ├── __init__.py
-│   ├── index.py        # Xử lý các route chính
-│   ├── admin.py        # Quản trị, báo cáo, phân quyền
-│   ├── models.py       # Định nghĩa các bảng, ORM
-│   ├── dao.py          # Các hàm truy vấn dữ liệu
-│   ├── templates/      # Giao diện HTML
-│   ├── static/         # File tĩnh (ảnh, css, js)
+│   ├── index.py        # Main route handling
+│   ├── admin.py        # Administration, reports, authorization
+│   ├── models.py       # Table definitions, ORM
+│   ├── dao.py          # Data access/query functions
+│   ├── templates/      # HTML templates
+│   ├── static/         # Static files (images, css, js)
 │   └── ...
 ├── requirements.txt
 └── README.md
 ```
 
-## Đóng góp
+## Contribution
 
-Vui lòng tạo issue mới để báo lỗi hoặc đề xuất tính năng. PR (Pull Request) luôn được hoan nghênh!
+Please create a new issue to report bugs or propose features. Pull Requests (PRs) are always welcome!
 
 ## License
 
-Dự án chưa công bố license cụ thể.
+This project does not have a specific license published yet.
 
 ---
 
-> © 2025 Xhoangduy. Mọi thông tin chi tiết vui lòng liên hệ qua GitHub: [Xhoangduy](https://github.com/Xhoangduy)
+> © 2025 Xhoangduy. For more information, please contact via GitHub: [Xhoangduy](https://github.com/Xhoangduy)
